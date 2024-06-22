@@ -2,6 +2,12 @@
 
 This project implements a sophisticated model to play the classic word-guessing game Hangman. The model combines frequency analysis, statistical models, and machine learning techniques to make informed guesses and improve its performance over time.
 
+## Commands related to the game
+
+- `python hangman.py`: This command executes the Hangman game based on the participant's implementation of word guessing in `your_solution.py`. It allows participants to assess the performance of their solution in automatically playing the game.
+- `python hangman.py --play True`: Running this command enables participants to manually play the Hangman game. This interactive mode helps participants understand the mechanics of the game and how their implementation affects the gameplay.
+- `python hangman.py --sample True`: This command plays the Hangman game based on the solution provided in `char_level_rnn.ipynb`. It serves as a reference implementation and can be used by participants to compare their solutions against a baseline.
+
 ## Approach
 
 The model's approach is divided into three main steps:
@@ -10,7 +16,7 @@ The model's approach is divided into three main steps:
 In the early stages of the game, the model has minimal information. It uses a frequency model to guess the most common letters in the English language, prioritizing vowels. This model helps fill in the initial 10-20% of the word based on letter frequency.
 
 ### STEP 2: Statistical Window Model
-The statistical window model considers the positions and relationships of letters. For example, given a partial word like _ _ a _ _ b, the model evaluates the likely letters for the positions around the known letters ('a' and 'b') within a window size of 2. This model helps fill in 40-50% of the word.
+The statistical window model considers the positions and relationships of letters. For example, given a partial word like `_ _ a _ _ b`, the model evaluates the likely letters for the positions around the known letters ('a' and 'b') within a window size of 2. This model helps fill in 40-50% of the word.
 
 ### STEP 3: Fine-Tuned Model
 In the final stages, the model uses a machine learning model trained on partially completed words to predict the remaining letters. This model is trained using XGBoost and fine-tuned with Optuna for optimal performance. Each word is represented as a (27,27) array, with each letter corresponding to a vector of size 27 (including the underscore for unknown letters).
