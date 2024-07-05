@@ -22,7 +22,7 @@ The statistical window model considers the positions and relationships of letter
 In the final stages, the model uses a machine learning model trained on partially completed words to predict the remaining letters. This model is trained using XGBoost and fine-tuned with Optuna for optimal performance. Each word is represented as a (27,27) array, with each letter corresponding to a vector of size 27 (including the underscore for unknown letters).
 
 ### Model Accuracy
-The current accuracy of our model is *26%*. While this is a good starting point, we are continuously working on improving it through the methods described in the Future Scope section.
+The current accuracy of our model is *37.64%*. While this is a good starting point, we are continuously working on improving it through the methods described in the Future Scope section.
 
 ## Future Scope
 
